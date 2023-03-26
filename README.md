@@ -23,6 +23,10 @@ Collect marketing price of Chromebooks from Amazon listings. If a cron job is sc
 - Set up cron jobs or other scheduling tools to run this program automatically on a regular basis.
 - Send out emails or other types of notifications when an unusual situation happens.
 
+### Future Improvement
+
+- Sending too many requests in a short amount of time may lead to Amazon blocking our requests. To prevent this from happening, we can try using a library called fake-useragent to generate random User Agent instead of using the same one.
+
 ### Sample Data Scraped in JSON format
 
 ![Screenshot 2023-03-25 230808](https://user-images.githubusercontent.com/115205162/227753136-eac7fbbf-b693-41b9-892b-edaa955ad076.png)
