@@ -23,9 +23,10 @@ Collect marketing price of Chromebooks from Amazon listings. If a cron job is sc
 - Set up cron jobs or other scheduling tools to run this program automatically on a regular basis.
 - Send out emails or other types of notifications when an unusual situation happens.
 
-### Data Scraped in JSON format
+### Sample Data Scraped in JSON format
 
 ![Screenshot 2023-03-25 230808](https://user-images.githubusercontent.com/115205162/227753136-eac7fbbf-b693-41b9-892b-edaa955ad076.png)
+To see all scraped data, check out chrome_books.csv. For this specific product, there were 40 search results in total when this program ran.
 
 ### Setup Instructions
 
