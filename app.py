@@ -4,9 +4,6 @@ import time
 
 
 page = 1
-pages_scraped = 0
-last_url = None
-last_content = None
 
 # initialize variables for total number of results and number of results scraped
 results_scraped = 0
@@ -16,6 +13,7 @@ HEADERS = ({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit
             'Accept-Language': 'en-US, en;q=0.5'})
 
 response = requests.get(url, headers=HEADERS)
+print(response)
 soup = BeautifulSoup(response.text, "html.parser")
 
 total_results_elem = soup.find(
@@ -37,8 +35,10 @@ while True:
         results = soup1.find_all(
             "div", {"data-component-type": "s-search-result"})
 
+        final_results = results[2:]
+
         # loop through each search result on the page
-        for result in results:
+        for result in final_results:
             name = result.find(
                 "span", {"class": "a-size-medium a-color-base a-text-normal"}).text.strip()
             price = result.find("span", {"class": "a-price-whole"})
@@ -63,16 +63,13 @@ while True:
             results_scraped += 1
             print(results_scraped)
             # check if we have scraped all the search results
-            if results_scraped >= total_results:
-                print("Finished scraping all search results.")
-                break
+            # if results_scraped >= total_results:
+            #     print("Finished scraping all search results.")
+            #     break
 
         # break the loop if we have scraped all the search results
         if results_scraped >= total_results:
             break
-
-        # increment the counter for the number of pages scraped
-        pages_scraped += 1
 
     else:
         print(
